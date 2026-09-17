@@ -127,8 +127,8 @@ MEDIA_URL = "media/"
 import socket
 CS_DEPLOYMENT_HOSTNAME = "cs-webapps.bu.edu"
 if socket.gethostname() == CS_DEPLOYMENT_HOSTNAME:
-    STATIC_URL = "/mamin/static/"
-    MEDIA_URL = "/mamin/media/"
+    STATIC_URL = "/mfaruq30/static/"
+    MEDIA_URL = "/mfaruq30/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
