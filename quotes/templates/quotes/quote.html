@@ -1,0 +1,10 @@
+{% extends 'quotes/base.html' %}
+
+{% block title %}Random Quote{% endblock %}
+
+{% block content %}
+    <blockquote>
+        <p>"{{ quote }}"</p>
+    </blockquote>
+    <img src="{{ image }}" alt="Muhammad Ali" width="400">
+{% endblock %}
