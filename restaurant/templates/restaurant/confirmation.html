@@ -1,0 +1,43 @@
+<!-- restaurant/templates/restaurant/confirmation.html -->
+<!-- confirmation page: items ordered, total, customer info, and ready time -->
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+<div>
+    <h1>Order Confirmation</h1>
+
+    <p>Thank you, {{name}}! Your order has been placed.</p>
+
+    <h2>Items Ordered</h2>
+    <!-- list every item the view found in the form data -->
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+        </tr>
+        {% for item_name, price in items %}
+        <tr>
+            <td>{{item_name}}</td>
+            <td>${{price|floatformat:2}}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <th>Total</th>
+            <th>${{total|floatformat:2}}</th>
+        </tr>
+    </table>
+
+    <h2>Special Instructions</h2>
+    <p>{{instructions}}</p>
+
+    <h2>Customer Information</h2>
+    <p>
+        Name: {{name}}<br>
+        Phone: {{phone}}<br>
+        Email: {{email}}
+    </p>
+
+    <!-- ready time was chosen randomly by the view -->
+    <p>Your order will be ready at <strong>{{readytime}}</strong>.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+/* restaurant/static/restaurant/styles.css */
+/* simple styles for all pages of the restaurant app */
+
+/* center the page and set the font */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* header and navigation links */
+header {
+    text-align: center;
+}
+
+nav a {
+    margin: 0 10px;
+}
+
+/* photos fit the page: same size, cropped neatly */
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+}
+
+/* tables for hours and the order summary */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+/* highlight the daily special */
+.special {
+    background-color: #f5f5f5;
+    padding: 10px;
+}

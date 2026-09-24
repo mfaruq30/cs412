@@ -1,0 +1,47 @@
+<!-- restaurant/templates/restaurant/order.html -->
+<!-- order page: form with menu items, daily special, instructions, and customer info -->
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+<div>
+    <h1>Order Online</h1>
+
+    <form action="{% url 'confirmation' %}" method="POST">
+        {% csrf_token %}
+
+        <h2>Menu</h2>
+        <!-- one checkbox per regular menu item -->
+        {% for key, item in menu.items %}
+        <p>
+            <input type="checkbox" name="{{key}}"> {{item.0}} - ${{item.1|floatformat:2}}
+
+            <!-- the plov has extra options -->
+            {% if key == 'plov' %}
+            <br>Extras:
+            {% for extra_key, extra in plov_extras.items %}
+                <input type="checkbox" name="plov_extras" value="{{extra_key}}"> {{extra.0}} (+${{extra.1|floatformat:2}})
+            {% endfor %}
+            {% endif %}
+        </p>
+        {% endfor %}
+
+        <!-- daily special, supplied by the view at run time -->
+        <p class="special">
+            <input type="checkbox" name="special">
+            Daily Special: {{special.name}} - ${{special.price|floatformat:2}}<br>
+            <em>{{special.description}}</em>
+            <input type="hidden" name="special_name" value="{{special.name}}">
+        </p>
+
+        <h2>Special Instructions</h2>
+        <textarea name="instructions" rows="4" cols="50"></textarea>
+
+        <h2>Customer Information</h2>
+        Name: <input type="text" name="name" required><br>
+        Phone: <input type="text" name="phone" required><br>
+        Email: <input type="email" name="email" required><br>
+
+        <input type="submit" value="Place Order">
+    </form>
+</div>
+{% endblock %}

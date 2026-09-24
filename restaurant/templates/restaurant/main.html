@@ -1,0 +1,38 @@
+<!-- restaurant/tepmlates/restaurant/main.html -->
+<!-- main page:name,location time, and food photos from the restaurant -->
+{% extends 'restaurant/base.html' %}
+{% load static %}
+
+{% block content %}
+<div>
+    <img src="{% static 'restaurant/images/plov.jpg' %}" alt="Plov">
+
+    <h2>Welcome</h2>
+    <p>Asian Home Cooking in heart off Boston.</p>
+
+    <h2>Location</h2>
+    <p>
+        123 Commonwealth Avenue<br>
+        Boston, MA 02215
+    </p>
+
+    <h2>Hours of Operation</h2>
+    <!-- hours come from the 'hours' context variable -->
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Hours</th>
+        </tr>
+        {% for day, time in hours %}
+        <tr>
+            <td>{{day}}</td>
+            <td>{{time}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <img src="{% static 'restaurant/images/samosa.jpg' %}" alt="Samosa">
+
+    
+</div>
+{% endblock %}

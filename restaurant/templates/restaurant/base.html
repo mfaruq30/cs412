@@ -1,0 +1,26 @@
+<!-- restaurant/templates/restaurant/base.html -->
+<!-- base template: header, navigation, and stylesheet shared by every page -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mirza's Food Station</title>
+    <link rel="stylesheet" href="{% static 'restaurant/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Mirza's Food Station</h1>
+        <!-- navigation links to each page -->
+        <nav>
+            <a href="{% url 'main' %}">Home</a>
+            <a href="{% url 'order' %}">Order Online</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- each page fills in its own content here -->
+        {% block content %}
+        {% endblock content %}
+    </main>
+</body>
+</html>
